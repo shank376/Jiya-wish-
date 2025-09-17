@@ -1,0 +1,301 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgb(255, 126, 126),
+    rgb(255, 237, 187)
+  );
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+.first--slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide--content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.slide--content h1 {
+  font-family: monospace;
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: 7em;
+  color: #fff;
+  margin: 0;
+  animation: slideInLeft 1s forwards;
+  position: relative;
+  z-index: 10;
+}
+
+.slide--content h2 {
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: 4em;
+  color: #fff;
+  margin: 0;
+  animation: slideInRight 1s forwards;
+  position: relative;
+  z-index: 10;
+}
+
+.slide--content span {
+  position: absolute;
+  background-color: #fff;
+  opacity: 0;
+}
+
+.slide--content .top {
+  width: 0%;
+  height: 2px;
+  top: 0;
+  left: 0;
+  animation: growLeft 1s forwards;
+}
+.slide--content .right {
+  width: 2px;
+  height: 0%;
+  top: 0;
+  right: 0;
+  animation: growBottom 1s forwards 0.3s;
+}
+.slide--content .bottom {
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  right: 0;
+  animation: growRight 1s forwards 0.6s;
+}
+.slide--content .left {
+  width: 2px;
+  height: 0%;
+  bottom: 0;
+  left: 0;
+  animation: growTop 1s forwards 0.9s;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-500px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(500px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes growLeft {
+  from {
+    width: 0;
+    opacity: 1;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+@keyframes growBottom {
+  from {
+    height: 0;
+    opacity: 1;
+  }
+  to {
+    height: 100%;
+    opacity: 1;
+  }
+}
+@keyframes growRight {
+  from {
+    width: 0;
+    opacity: 1;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+@keyframes growTop {
+  from {
+    height: 0;
+    opacity: 1;
+  }
+  to {
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+.slide--content--one {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  animation: fade-in 1s forwards 3s;
+  opacity: 0;
+}
+
+.slide--content--one .first {
+  font-family: monospace;
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: 7em;
+  color: #fff;
+  margin: 0;
+  position: relative;
+  z-index: 10;
+  animation: drop-in 1s forwards 4s;
+}
+.slide--content--one .second {
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: 4em;
+  color: #fff;
+  margin: 0;
+  position: relative;
+  z-index: 10;
+  animation: drop-in 1s forwards 4.5s;
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes drop-in {
+  from {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.circle--stuff {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+}
+
+/* NEW CODE */
+
+/* New slide styling */
+.last--slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background: linear-gradient(
+    to bottom right,
+    rgb(255, 126, 126),
+    rgb(255, 237, 187)
+  );
+  color: #fff;
+  transition: opacity 1s ease-in-out;
+}
+
+.last--slide.hidden {
+  opacity: 0;
+  pointer-events: none; /* Prevents interaction when hidden */
+}
+
+.last--slide--content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.photo--container {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  transform: scale(0.5);
+  animation: photo-scale-in 1s forwards ease-out;
+}
+
+.birthday--photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.last--slide--content h2 {
+  font-size: 3em;
+  color: #ffc107;
+  opacity: 0;
+  animation: fade-in 1s forwards 0.5s;
+}
+
+p {
+  max-width: 600px;
+  font-size: 1.2em;
+  line-height: 1.6;
+  opacity: 0;
+}
+
+/* Animations for messages */
+.message--one {
+  animation: fade-in 1s forwards 1s;
+}
+
+.message--two {
+  animation: fade-in 1s forwards 1.5s;
+}
+
+.message--three {
+  animation: fade-in 1s forwards 2s;
+}
+
+/* Keyframe animations */
+@keyframes photo-scale-in {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+/* END OF NEW CODE */
